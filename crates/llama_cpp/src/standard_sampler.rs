@@ -162,3 +162,29 @@ impl Default for StandardSampler {
         }
     }
 }
+
+impl Clone for StandardSampler {
+    fn clone(&self) -> Self {
+        Self {
+            n_prev: self.n_prev,
+            n_probs: self.n_probs,
+            top_k: self.top_k,
+            top_p: self.top_p,
+            min_p: self.min_p,
+            tfs_z: self.tfs_z,
+            typical_p: self.typical_p,
+            temp: self.temp,
+            penalty_last_n: self.penalty_last_n,
+            penalty_repeat: self.penalty_repeat,
+            penalty_freq: self.penalty_freq,
+            penalty_present: self.penalty_present,
+            mirostat: self.mirostat,
+            mirostat_tau: self.mirostat_tau,
+            mirostat_eta: self.mirostat_eta,
+            penalize_nl: self.penalize_nl,
+            grammar: self.grammar.clone(),
+            cfg_negative_prompt: self.cfg_negative_prompt.clone(),
+            cfg_scale: self.cfg_scale,
+        }
+    }
+}
